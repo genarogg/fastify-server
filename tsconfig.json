@@ -6,7 +6,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@log": ["src/config/console.ts"],
+      "@email/*": ["src/email/*"]
+    }
   },
-  "include": ["src/**/*"]
+  "include": ["*.ts"],
 }
