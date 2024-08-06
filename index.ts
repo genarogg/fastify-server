@@ -3,7 +3,7 @@ import clear from "console-clear";
 clear();
 
 import fastify from "fastify";
-import fastifyCors from "fastify-cors";
+import cors from "@fastify/cors";
 import log from "./src/config/console";
 
 // variables de entorno
@@ -12,8 +12,9 @@ const CORS_URL = process.env.CORS_URL || "*";
 
 const server = fastify({ bodyLimit: 1048576 });
 
-// Habilita CORS
-server.register(fastifyCors, {
+// Usar cors como middleware
+// Registrar el plugin de CORS
+server.register(cors, {
   origin: CORS_URL,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
